@@ -17,7 +17,7 @@ Route::get('/', function () {
 
     // Dati
     $data = [
-        "name" => "Andrea",
+        "name" => "Andrea Casentini",
         "skills" => [
             "HTML",
             "CSS",
