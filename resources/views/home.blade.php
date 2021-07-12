@@ -27,14 +27,20 @@
             }
 
             h1 {
-                margin-bottom: 40px;
+                margin-bottom: 50px;
+                text-transform: uppercase;
                 font-size: 70px;
                 color: limegreen;
             }
 
             h2 {
-                margin-bottom: 20px;
+                margin-bottom: 35px;
+                font-size: 20px;
                 color: dodgerblue;
+            }
+            h2 span {
+                font-size: 20px;
+                color: #ffffff;
             }
 
             ul {
@@ -42,7 +48,7 @@
             }
 
             li {
-                margin: 15px 0;
+                margin: 20px 0;
                 font-size: 20px;
                 color: #ffffff;
             }
@@ -57,12 +63,18 @@
     <body>
         <div class="wrapper">
             <h1>Hello World</h1>
-            <h2>Le mie skill:</h2>
-            <ul>
-                <li>Prova</li>
-                <li>Prova</li>
-                <li>Prova</li>
-            </ul>
+            @if (count($skills) == 0)
+                <h2>{{ $name }} non possiede alcuna skill</h2>
+            @elseif (count($skills) == 1)
+                <h2>La skill di {{ $name }} è <span>{{ $skills[0] }}</span></h2>
+            @else
+                <h2>Le skill di {{ $name }} sono:</h2>
+                <ul>
+                    @foreach ($skills as $skill)
+                        <li>{{ $skill }}</li>
+                    @endforeach
+                </ul>
+            @endif
         </div>
     </body>
 </html>
